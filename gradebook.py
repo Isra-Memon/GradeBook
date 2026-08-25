@@ -18,7 +18,9 @@ class GradeBook:
         self.students = []
 
     def add_student(self, student):
-        # BUG 3: does not check for duplicate roll numbers
+        for s in self.students:
+            if s.roll_no == student.roll_no:
+                raise ValueError(f"Roll number {student.roll_no} already exists")
         self.students.append(student)
 
     def find_student(self, name):
