@@ -8,7 +8,8 @@ class Student:
         self.scores.append(score)
 
     def average(self):
-        # BUG 1: crashes if scores list is empty (ZeroDivisionError)
+        if not self.scores:
+            return 0.0
         return sum(self.scores) / len(self.scores)
 
 
