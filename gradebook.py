@@ -24,9 +24,8 @@ class GradeBook:
         self.students.append(student)
 
     def find_student(self, name):
-        # BUG 5: case-sensitive comparison, "isra" won't match "Isra"
         for s in self.students:
-            if s.name == name:
+            if s.name.lower() == name.lower():
                 return s
         return None
 
