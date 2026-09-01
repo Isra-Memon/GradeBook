@@ -14,3 +14,5 @@
 | TC-010 | Minimum score boundary (0) | REQ-7 | Student object exists with empty scores | 1. Call student.add_score(0) | Score 0 is accepted and added | Medium | Boundary |
 | TC-011 | Grade-letter conversion, mid-range score | REQ-8 | Student has average of 85 | 1. Call student.grade_letter() | Returns "B" | Medium | Functional |
 | TC-012 | Grade-letter conversion at boundary | REQ-8 | Student has average of exactly 90 | 1. Call student.grade_letter() | Returns "A" | Medium | Boundary |
+| TC-013 | Reject duplicate roll number | REQ-3 | GradeBook has a student with roll_no 101 | 1. Call gb.add_student(Student("Ahmed", 101)) | A ValueError is raised, second student not added | High | Negative |
+| TC-014 | Class average with multiple students | REQ-6 | GradeBook has 2 students each with scores | 1. Call gb.class_average() | Returns the correct mean of all students' averages | Medium | Functional |
