@@ -12,6 +12,19 @@ class Student:
             return 0.0
         return sum(self.scores) / len(self.scores)
 
+    def grade_letter(self):
+        avg = self.average()
+        if avg >= 90:
+            return "A"
+        elif avg >= 80:
+            return "B"
+        elif avg >= 70:
+            return "C"
+        elif avg >= 60:
+            return "D"
+        else:
+            return "F"
+
 
 class GradeBook:
     def __init__(self):
@@ -42,8 +55,8 @@ if __name__ == "__main__":
     isra = Student("Isra", 101)
     isra.add_score(85)
     isra.add_score(90)
-    isra.add_score(-10)  # BUG 2: negative score accepted, no validation
     gb.add_student(isra)
 
     print("Isra's average:", isra.average())
+    print("Isra's grade:", isra.grade_letter())
     print("Class average:", gb.class_average())
