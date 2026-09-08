@@ -58,6 +58,18 @@ class GradeBook:
         return int((total / count) * 100) / 100 if count else 0
 
 
+class Roster:
+    def __init__(self):
+        self.students = []
+
+    def add_student(self, student):
+        if not (1 <= len(student.scores) <= 6):
+            raise ValueError(
+                f"Student must have between 1 and 6 scores, got {len(student.scores)}"
+            )
+        self.students.append(student)
+
+
 if __name__ == "__main__":
     gb = GradeBook()
     isra = Student("Isra", 101)
