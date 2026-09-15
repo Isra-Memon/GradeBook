@@ -65,10 +65,9 @@ class GradeBook:
                 return s
         return None
     def class_average(self):
-        # BUG 4: incorrect rounding (truncates instead of rounding properly)
         total = sum(s.average() for s in self.students if s.scores)
         count = len([s for s in self.students if s.scores])
-      return round(total / count, 2) if count else 0
+        return round(total / count, 2) if count else 0
 
 
 class Roster:
