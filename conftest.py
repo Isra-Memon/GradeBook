@@ -25,3 +25,10 @@ def rounding_gradebook():
     gb.add_student(s2)
 
     return gb
+
+
+@pytest.fixture
+def empty_gradebook():
+    """Function scope: fresh GradeBook with no students, used to test
+    edge cases like class_average() on an empty class."""
+    return GradeBook()
