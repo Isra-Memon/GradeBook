@@ -37,6 +37,8 @@ class Student:
         self.roll_no = roll_no
         self.scores = []
     def add_score(self, score):
+        if score < 0 or score > 100:
+            raise ValueError(f"Invalid score: {score}. Must be between 0 and 100.")
         self.scores.append(score)
     def average(self):
         if not self.scores:
