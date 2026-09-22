@@ -1,6 +1,11 @@
 import re
 
 
+class GradeBookIOError(Exception):
+    """Raised when GradeBook data can't be written to disk."""
+    pass
+
+
 def letter_grade(score):
     if score < 0 or score > 100:
         raise ValueError(f"Invalid score: {score}. Must be between 0 and 100.")
@@ -68,6 +73,14 @@ class GradeBook:
         total = sum(s.average() for s in self.students if s.scores)
         count = len([s for s in self.students if s.scores])
         return round(total / count, 2) if count else 0
+    def save_to_file(self, path):
+        lines = [f"{s.name},{s.roll_no},{s.average()}" for s in self.students]
+        content = "\n".join(lines)
+        try:
+            with open(path, "w") as f:
+                f.write(content)
+        except OSError as e:
+            raise GradeBookIOError(f"Could not save gradebook to {path}: {e}")
 
 
 class Roster:
